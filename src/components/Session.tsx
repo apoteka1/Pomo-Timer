@@ -1,5 +1,6 @@
 import moment from "moment";
-import "./Session.css";
+
+import {ButtonGroup, Button} from "react-bootstrap"
 
 type Props = {
 	sessionLength: number;
@@ -16,19 +17,23 @@ export default function Session({
 		.duration(sessionLength, "s")
 		.minutes();
 	return (
-		<div>
+		<div className="card">
 			<p id="session__session-label">Session</p>
 			<p id="session__session-length">{sessionLengthInMinutes}</p>
-			<button
+            <ButtonGroup size="sm">
+			<Button
+            variant="outline-info"
 				className="session__button"
 				onClick={() => incrementSessionLengthByOneMinute()}>
 				+
-			</button>
-			<button
+			</Button>
+			<Button
+            variant="outline-info"
 				className="session__button"
 				onClick={() => decrementSessionLengthByOneMinute()}>
 				-
-			</button>
+			</Button>
+            </ButtonGroup>
 		</div>
 	);
 }

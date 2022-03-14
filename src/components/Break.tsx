@@ -1,5 +1,6 @@
 import moment from "moment";
-import "./Break.css";
+
+import { ButtonGroup, Button } from "react-bootstrap";
 type Props = {
 	breakLength: number;
 	decrementBreakLengthByOneMinute: Function;
@@ -15,19 +16,23 @@ export default function Break({
 		.duration(breakLength, "s")
 		.minutes();
 	return (
-		<div>
+		<div className="card">
 			<p id="break__break-label">Break</p>
 			<p id="break__break-length">{breakLengthInMinutes}</p>
-			<button
-				className="break__button"
-				onClick={()=>incrementBreakLengthByOneMinute()}>
-				+
-			</button>
-			<button
-				className="break__button"
-				onClick={()=>decrementBreakLengthByOneMinute()}>
-				-
-			</button>
+			<ButtonGroup size="sm">
+				<Button
+					variant="outline-info"
+					className="break__button"
+					onClick={() => incrementBreakLengthByOneMinute()}>
+					+
+				</Button>
+				<Button
+					variant="outline-info"
+					className="break__button"
+					onClick={() => decrementBreakLengthByOneMinute()}>
+					-
+				</Button>
+			</ButtonGroup>
 		</div>
 	);
 }

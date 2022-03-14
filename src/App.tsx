@@ -3,6 +3,7 @@ import "./App.css";
 import Break from "./components/Break";
 import Session from "./components/Session";
 import TimeLeft from "./components/TimeLeft";
+import { Button } from "react-bootstrap";
 
 function App() {
 	const audioElement = useRef<HTMLAudioElement>(null);
@@ -87,27 +88,32 @@ function App() {
 
 	return (
 		<div className="App">
+			<h1 className="card">Pomo!</h1>
 			<TimeLeft
 				timerLabel={currentSessionType}
 				handleStartStopClick={handleStartStopClick}
 				startStopLabel={intervalID !== null}
 				timeLeft={timeLeft}></TimeLeft>
-			<div>
-				<Session
-					sessionLength={sessionLength}
-					decrementSessionLengthByOneMinute={decrementSessionLengthByOneMinute}
-					incrementSessionLengthByOneMinute={
-						incrementSessionLengthByOneMinute
-					}></Session>
 
-				<Break
-					breakLength={breakLength}
-					decrementBreakLengthByOneMinute={decrementBreakLengthByOneMinute}
-					incrementBreakLengthByOneMinute={
-						incrementBreakLengthByOneMinute
-					}></Break>
+			<Session
+				sessionLength={sessionLength}
+				decrementSessionLengthByOneMinute={decrementSessionLengthByOneMinute}
+				incrementSessionLengthByOneMinute={
+					incrementSessionLengthByOneMinute
+				}></Session>
+
+			<Break
+				breakLength={breakLength}
+				decrementBreakLengthByOneMinute={decrementBreakLengthByOneMinute}
+				incrementBreakLengthByOneMinute={
+					incrementBreakLengthByOneMinute
+				}></Break>
+
+			<div className="card">
+				<Button variant="danger" onClick={handleResetButtonClick}>
+					reset
+				</Button>
 			</div>
-			<button onClick={handleResetButtonClick}>reset</button>
 			<audio id="alarm" ref={audioElement}>
 				<source
 					src="http://soundbible.com/grab.php?id=1531&type=mp3"
