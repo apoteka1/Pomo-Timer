@@ -1,0 +1,44 @@
+#button-addon1 {
+	width: 10%;
+}
+
+.tasks__list-red {
+	border: red 1px solid;
+	padding: 5px 5px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.tasks__list-amber {
+	border: orange 1px solid;
+	padding: 5px 5px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.tasks__list-green {
+	border: green 1px solid;
+	padding: 5px 5px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.task {
+	border-top: 1px gainsboro solid;
+	padding-top: 5px;
+	margin-top: 5px;
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+}
+
+.task__text {
+	word-wrap: break-word;
+	width: 85%;
+	text-align: left;
+	font-size: 14px;
+}
+
+.button-group {
+	height: 34px;
+}

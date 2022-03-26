@@ -1,4 +1,7 @@
 body {
 	background-color: rgb(247, 254, 255);
-	font-family: "Roboto Mono";
+	font-family: "JetBrains Mono";
+}
+.bold {
+    font-weight: bold;
 }

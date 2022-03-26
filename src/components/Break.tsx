@@ -16,21 +16,19 @@ export default function Break({
 		.duration(breakLength, "s")
 		.minutes();
 	return (
-		<div className="card">
+		<div className="session-break-block">
 			<p id="break__break-label">Break</p>
 			<p id="break__break-length">{breakLengthInMinutes}</p>
-			<ButtonGroup size="sm">
+			<ButtonGroup className="button-block" size="sm">
 				<Button
 					variant="outline-info"
-					className="break__button"
 					onClick={() => incrementBreakLengthByOneMinute()}>
-					+
+					<i className="fa fa-plus" />
 				</Button>
 				<Button
 					variant="outline-info"
-					className="break__button"
 					onClick={() => decrementBreakLengthByOneMinute()}>
-					-
+					<i className="fa fa-minus" />
 				</Button>
 			</ButtonGroup>
 		</div>

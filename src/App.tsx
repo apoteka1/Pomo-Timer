@@ -3,6 +3,7 @@ import "./App.css";
 import Break from "./components/Break";
 import Session from "./components/Session";
 import TimeLeft from "./components/TimeLeft";
+import Tasks from "./components/Tasks";
 import { Button } from "react-bootstrap";
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
 		} else {
 			const newIntervalID = setInterval(() => {
 				setTimeLeft((prevTimeLeft): number => prevTimeLeft - 1);
-			}, 100);
+			}, 1000);
 			setIntervalID(newIntervalID);
 		}
 	};
@@ -80,7 +81,7 @@ function App() {
 			clearInterval(intervalID);
 		}
 		setIntervalID(null);
-		setCurrentSessionType("session");
+		setCurrentSessionType("Session");
 		setSessionLength(60 * 25);
 		setBreakLength(60 * 5);
 		setTimeLeft(60 * 25);
@@ -88,32 +89,30 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1 className="card">Pomo!</h1>
+			<h1 className="card bold">Pomo!</h1>
 			<TimeLeft
 				timerLabel={currentSessionType}
 				handleStartStopClick={handleStartStopClick}
 				startStopLabel={intervalID !== null}
-				timeLeft={timeLeft}></TimeLeft>
+				timeLeft={timeLeft}
+				handleResetButtonClick={handleResetButtonClick}></TimeLeft>
+			<div className="card" id="session-break-block">
+				<Session
+					sessionLength={sessionLength}
+					decrementSessionLengthByOneMinute={decrementSessionLengthByOneMinute}
+					incrementSessionLengthByOneMinute={
+						incrementSessionLengthByOneMinute
+					}></Session>
 
-			<Session
-				sessionLength={sessionLength}
-				decrementSessionLengthByOneMinute={decrementSessionLengthByOneMinute}
-				incrementSessionLengthByOneMinute={
-					incrementSessionLengthByOneMinute
-				}></Session>
-
-			<Break
-				breakLength={breakLength}
-				decrementBreakLengthByOneMinute={decrementBreakLengthByOneMinute}
-				incrementBreakLengthByOneMinute={
-					incrementBreakLengthByOneMinute
-				}></Break>
-
-			<div className="card">
-				<Button variant="danger" onClick={handleResetButtonClick}>
-					reset
-				</Button>
+				<Break
+					breakLength={breakLength}
+					decrementBreakLengthByOneMinute={decrementBreakLengthByOneMinute}
+					incrementBreakLengthByOneMinute={
+						incrementBreakLengthByOneMinute
+					}></Break>
 			</div>
+
+			<Tasks />
 			<audio id="alarm" ref={audioElement}>
 				<source
 					src="http://soundbible.com/grab.php?id=1531&type=mp3"
