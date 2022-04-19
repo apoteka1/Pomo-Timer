@@ -1,7 +1,11 @@
 body {
-	background-color: rgb(247, 254, 255);
-	font-family: "JetBrains Mono";
+	background-color: #00d5ff10;
+	font-family: "Rubik";
 }
 .bold {
-    font-weight: bold;
+	font-weight: bold;
+}
+.header {
+	font-family: "Rubik Mono One";
+	color: #dc3545;
 }

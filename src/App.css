@@ -24,13 +24,12 @@
 }
 
 .card {
-	justify-content: center;
 	background-color: white;
 	margin: 1vh;
 	padding: 5px 5px;
 	border-radius: 5px;
 	width: 100%;
-	max-width: 750px;
+	max-width: 650px;
 }
 #session-break-block {
 	display: flex;
@@ -43,5 +42,31 @@
 }
 
 .button-block {
-	width: 50%;
+	width: 40%;
+	align-self: center;
+}
+#title {
+	margin: 0 0 4px 0;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-button {
+	position: absolute;
+	right: 5%;
+	color: #0dcaf0;
+	font-size: 25px;
+}
+.login-button:hover {
+	cursor: pointer;
+	color: #000000;
+}
+
+#main-btn-block {
+	align-self: center;
 }

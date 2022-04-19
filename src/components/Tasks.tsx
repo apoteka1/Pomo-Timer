@@ -19,6 +19,34 @@ const Tasks = () => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTaskInput(e.target.value);
 	};
+	useEffect(() => {
+		const allTasksLocal = localStorage.getItem("allTasks");
+		if (allTasksLocal?.length) {
+			setAllTasks(JSON.parse(allTasksLocal));
+		} else {
+			setAllTasks([]);
+		}
+	}, []);
+
+	useEffect(() => {
+		const sessionTasksLocal = localStorage.getItem("sessionTasks");
+		if (sessionTasksLocal) {
+			setSessionTasks(JSON.parse(sessionTasksLocal));
+		}
+	}, []);
+
+	useEffect(() => {
+		const completeTasksLocal = localStorage.getItem("completeTasks");
+		if (completeTasksLocal) {
+			setCompleteTasks(JSON.parse(completeTasksLocal));
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("allTasks", JSON.stringify(allTasks));
+		localStorage.setItem("sessionTasks", JSON.stringify(sessionTasks));
+		localStorage.setItem("completeTasks", JSON.stringify(completeTasks));
+	}, [allTasks, sessionTasks, completeTasks]);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -44,7 +72,7 @@ const Tasks = () => {
 				</InputGroup>
 			</Form>
 			<div className="tasks__list-red">
-				<p style={{ color: "red" }}>All tasks</p>
+				<p style={{ color: "#dc3545" }}>All tasks</p>
 
 				{allTasks.length
 					? allTasks.map((t, index) => {
@@ -60,7 +88,7 @@ const Tasks = () => {
 					: null}
 			</div>
 			<div className="tasks__list-amber">
-				<p style={{ color: "orange" }}>This session</p>
+				<p style={{ color: "#f09c00" }}>This session</p>
 				{sessionTasks.length
 					? sessionTasks.map((t, index) => {
 							return (
@@ -76,7 +104,7 @@ const Tasks = () => {
 					: null}
 			</div>
 			<div className="tasks__list-green">
-				<p style={{ color: "green" }}>Complete</p>
+				<p style={{ color: "#007700" }}>Complete</p>
 				{completeTasks.map((t, index) => {
 					return (
 						<CompleteTaskCard

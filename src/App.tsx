@@ -89,7 +89,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1 className="card bold">Pomo!</h1>
+			<h1 className="card bold header">Pomo</h1>
 			<TimeLeft
 				timerLabel={currentSessionType}
 				handleStartStopClick={handleStartStopClick}

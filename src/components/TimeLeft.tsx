@@ -17,19 +17,18 @@ export default function TimeLeft({
 }: Props) {
 	return (
 		<div className="card">
-			<p>{timerLabel}</p>
+			<p>Now: {timerLabel}</p>
 			<p>{format(timeLeft * 1000)}</p>
-			<ButtonGroup>
-				<Button variant="btn btn-outline-danger" onClick={handleStartStopClick}>
+
+			<ButtonGroup id="main-btn-block" className="button-block">
+				<Button variant="outline-info" onClick={handleStartStopClick}>
 					{startStopLabel ? (
 						<i className="fa fa-pause" />
 					) : (
 						<i className="fa fa-play" />
 					)}
 				</Button>
-				<Button
-					variant="btn btn-outline-danger"
-					onClick={handleResetButtonClick}>
+				<Button variant="outline-info" onClick={handleResetButtonClick}>
 					<i className="fa fa-refresh" />
 				</Button>
 			</ButtonGroup>

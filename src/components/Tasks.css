@@ -3,21 +3,21 @@
 }
 
 .tasks__list-red {
-	border: red 1px solid;
+	border: #dc3545 1px solid;
 	padding: 5px 5px;
 	border-radius: 5px;
 	margin-top: 5px;
 }
 
 .tasks__list-amber {
-	border: orange 1px solid;
+	border: #f09c00 1px solid;
 	padding: 5px 5px;
 	border-radius: 5px;
 	margin-top: 5px;
 }
 
 .tasks__list-green {
-	border: green 1px solid;
+	border: #007700 1px solid;
 	padding: 5px 5px;
 	border-radius: 5px;
 	margin-top: 5px;
